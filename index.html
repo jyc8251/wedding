@@ -84,8 +84,7 @@
     </nav>
 
     <!-- Hero Section: Full Screen Cover -->
-    <!-- Google Drive image converted to direct export link for background display -->
-    <header class="relative w-full h-screen flex flex-col justify-end pb-24 md:pb-32 bg-cover bg-top" style="background-image: url('https://i.postimg.cc/65qjvKDt/90dde932a3e69c9a88c092b5c30051c7.jpg');">
+    <header class="relative w-full h-screen flex flex-col justify-end pb-28 md:pb-36 bg-cover bg-top" style="background-image: url('https://i.postimg.cc/7hHBXGmr/9349610e59585273b5c0374e022261e6.jpg');">
         <div class="absolute inset-0 hero-overlay"></div>
         
         <div class="relative z-10 text-center text-white px-4 flex flex-col items-center">
@@ -93,29 +92,7 @@
             <h1 class="text-6xl md:text-8xl font-en mb-6 tracking-wide drop-shadow-lg">
                 祐儒 <span class="text-morandi-sun italic mx-4">&</span> 儀如
             </h1>
-            <p class="text-lg md:text-xl tracking-[0.2em] mb-10 font-en">2026 . 11 . 14</p>
-            
-            <!-- Artistic Countdown Timer -->
-            <div class="flex space-x-3 sm:space-x-6 justify-center">
-                <!-- Days -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-glow px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
-                    <span id="cd-days" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
-                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
-                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">DAYS</span>
-                </div>
-                <!-- Hours -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-glow px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
-                    <span id="cd-hours" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
-                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
-                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">HRS</span>
-                </div>
-                <!-- Minutes -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-glow px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
-                    <span id="cd-minutes" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
-                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
-                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">MIN</span>
-                </div>
-            </div>
+            <p class="text-lg md:text-xl tracking-[0.2em] font-en">2026 . 11 . 14</p>
         </div>
         
         <!-- Scroll indicator -->
@@ -124,8 +101,34 @@
         </div>
     </header>
 
-    <!-- Details Section: V-Card Design -->
-    <section id="details" class="py-24 px-6">
+    <!-- Details Section: V-Card Design & Countdown -->
+    <section id="details" class="pt-20 pb-24 px-6">
+        
+        <!-- Artistic Countdown Timer (Moved here) -->
+        <div class="max-w-3xl mx-auto text-center mb-20">
+            <p class="text-sm font-en tracking-[0.3em] text-morandi-sage mb-6">COUNTDOWN TO OUR BIG DAY</p>
+            <div class="flex space-x-3 sm:space-x-6 justify-center">
+                <!-- Days -->
+                <div class="bg-white rounded-2xl shadow-soft border border-morandi-sage/20 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
+                    <span id="cd-days" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
+                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
+                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">DAYS</span>
+                </div>
+                <!-- Hours -->
+                <div class="bg-white rounded-2xl shadow-soft border border-morandi-sage/20 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
+                    <span id="cd-hours" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
+                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
+                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">HRS</span>
+                </div>
+                <!-- Minutes -->
+                <div class="bg-white rounded-2xl shadow-soft border border-morandi-sage/20 px-4 py-3 sm:px-6 sm:py-4 flex items-center justify-center min-w-[80px] sm:min-w-[110px] transform transition hover:-translate-y-1">
+                    <span id="cd-minutes" class="text-3xl sm:text-5xl font-en font-semibold text-morandi-sun">00</span>
+                    <div class="w-[1px] h-10 sm:h-12 bg-morandi-sage/40 mx-3 sm:mx-4"></div>
+                    <span class="text-xs sm:text-sm font-en text-morandi-text tracking-widest flex flex-col justify-center">MIN</span>
+                </div>
+            </div>
+        </div>
+
         <!-- V-Card Arch Container -->
         <div class="max-w-3xl mx-auto bg-white rounded-t-[100px] rounded-b-3xl shadow-soft border border-morandi-sage/20 relative pt-20 pb-12 px-8 sm:px-16 text-center">
             
@@ -272,7 +275,7 @@
                             <!-- Dietary Needs -->
                             <div>
                                 <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">想對我們說的話</label>
-                                <textarea name="entry.1659917008" rows="3" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="如：1位全素、不吃牛、或其他想對我們說的話..."></textarea>
+                                <textarea name="entry.1659917008" rows="3" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="如：祝福的話..."></textarea>
                             </div>
                         </div>
                     </div>
