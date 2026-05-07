@@ -214,7 +214,7 @@
                         <!-- Email -->
                         <div>
                             <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">電子郵件 EMAIL</label>
-                            <input type="email" name="entry.747204351" required class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="">
+                            <input type="email" name="entry.747204351" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="">
                         </div>
 
                         <!-- Relationship -->
@@ -236,10 +236,10 @@
                         <div>
                             <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">出席意願 ATTENDANCE</label>
                             <div class="relative">
-                                <select name="entry.1569219981" required class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg appearance-none transition-colors">
+                                <select id="attendance_select" name="entry.1569219981" required class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg appearance-none transition-colors" onchange="handleAttendanceChange()">
                                     <option value="" disabled selected>請選擇...</option>
-                                    <option value="我一定會到~">我一定會到~</option>
-                                    <option value="殘念無法參加">我心與你同在（不克參加）</option>
+                                    <option value="參加">參加</option>
+                                    <option value="不克參加">不克參加</option>
                                 </select>
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-morandi-sage">
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -251,10 +251,10 @@
                         <div>
                             <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">是否需要紙本喜帖</label>
                             <div class="relative">
-                                <select name="entry.333703433" required class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg appearance-none transition-colors">
+                                <select id="invitation_select" name="entry.333703433" required class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg appearance-none transition-colors">
                                     <option value="" disabled selected>請選擇...</option>
-                                    <option value="我超需要">我超需要</option>
-                                    <option value="不需要">不用，謝謝</option>
+                                    <option value="是">是</option>
+                                    <option value="否">否</option>
                                 </select>
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-morandi-sage">
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -275,12 +275,12 @@
                                 <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">需要兒童椅數量 CHILD SEATS</label>
                                 <input type="number" id="child_seats" name="entry.1600335717" min="0" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="不需要請留白或填 0">
                             </div>
+                        </div>
 
-                            <!-- Dietary Needs -->
-                            <div>
-                                <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">想對我們說的話</label>
-                                <textarea name="entry.1659917008" rows="3" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="如：祝福的話..."></textarea>
-                            </div>
+                        <!-- Message (Moved outside conditional section) -->
+                        <div class="mt-6">
+                            <label class="block text-sm font-semibold text-morandi-text mb-2 tracking-wide">想對我們說的話 MESSAGE</label>
+                            <textarea name="entry.1659917008" rows="3" class="w-full border border-morandi-sage/40 rounded-lg p-3 bg-morandi-bg transition-colors" placeholder="如：祝福的話..."></textarea>
                         </div>
                     </div>
 
@@ -351,6 +351,26 @@
                 content.classList.remove('max-h-[500px]');
                 icon.classList.remove('rotate-180');
             }
+        }
+
+        // --- 智能表單邏輯 (出席意願變更) ---
+        function handleAttendanceChange() {
+            const attendance = document.getElementById('attendance_select').value;
+            const countInput = document.getElementById('attendee_count');
+            const invitationSelect = document.getElementById('invitation_select');
+            
+            if (attendance === "殘念無法參加") {
+                countInput.value = 0;
+                // 如果不出席，預設不需要喜帖（但仍可手動改）
+                if (invitationSelect.value === "") {
+                    invitationSelect.value = "不需要";
+                }
+            } else if (attendance === "我一定會到~") {
+                if (countInput.value === "0") {
+                    countInput.value = "";
+                }
+            }
+            handleConditionalFields();
         }
 
         // --- 智能表單邏輯 (條件顯示) ---
